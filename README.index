@@ -9,6 +9,14 @@ versions of the JavaMail API implementation, IMAP, SMTP, and POP3
 service providers, some examples, and documentation for the JavaMail
 API.
 
+from bs4 import BeautifulSoup
+import requests
+
+response = requests.get("https://www.ethiopianpassportservices.gov.et/status?app=123456")
+soup = BeautifulSoup(response.text, "html.parser")
+status_elem = soup.find("div", {"id": "status"})
+print("Status:", status_elem.text.strip())
+
 Please see the FAQ at https://javaee.github.io/javamail/FAQ
 
 JDK Version notes
